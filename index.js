@@ -21,6 +21,11 @@ client.on('ready', () => {
     console.log(`${client.user.tag} がログインしました！準備完了です！`);
 });
 
+// ↓↓↓これを追加↓↓↓
+client.on('debug', (info) => console.log(`[デバッグ] ${info}`));
+client.on('error', (err) => console.error(`[重大なエラー]`, err));
+// ↑↑↑これを追加↑↑↑
+
 // 誰かがボイスチャンネルを動いた時の処理
 client.on('voiceStateUpdate', (oldState, newState) => {
     const channelId = process.env.CHANNEL_ID;
